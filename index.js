@@ -38,7 +38,7 @@ app.put("/api/courses/:id", (req, res) => {
 
   // validate
   // If invalid, return 400 - Bad request
-  const { error } = validateCourse(req.body)
+  const { error } = validateCourse(req.body) // result.error
   if (error) return res.status(400).send(error.details[0].message)
 
   // Update course & return the updated course
