@@ -89,4 +89,4 @@ app.get("/api/courses/:id", (req, res) => {
 })
 
 const port = process.env.PORT || 4000
-app.listen(port, () => console.log(`listening on port ${port}....`))
+app.listen(port, () => console.log(`listening on port ${port}...`))
