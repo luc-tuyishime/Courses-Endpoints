@@ -1,3 +1,4 @@
+const config = require("config")
 const morgan = require("morgan")
 const helmet = require("helmet")
 const Joi = require("joi")
@@ -9,6 +10,11 @@ app.use(express.json()) // it parse the body of the request and if there is a JS
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"))
 app.use(helmet())
+
+// configuration settings (developemnt or production)
+console.log(`Application name: ${config.get("name")}`)
+console.log(`Mail Server name: ${config.get("mail.host")}`)
+console.log(`Mail Password name: ${config.get("mail.password")}`) // display the password of mail server or find value of mail.password
 
 if (app.get("env") === "development") {
   app.use(morgan("tiny"))
